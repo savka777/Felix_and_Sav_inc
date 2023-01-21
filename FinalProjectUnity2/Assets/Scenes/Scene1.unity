@@ -584,9 +584,49 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3839819483288939474, guid: e94950a6cd82de243a5ffe4a3876f2dc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839819483288939474, guid: e94950a6cd82de243a5ffe4a3876f2dc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839819483288939474, guid: e94950a6cd82de243a5ffe4a3876f2dc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99167114
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839819483288939474, guid: e94950a6cd82de243a5ffe4a3876f2dc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.12879558
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839819483288939474, guid: e94950a6cd82de243a5ffe4a3876f2dc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839819483288939474, guid: e94950a6cd82de243a5ffe4a3876f2dc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839819483288939474, guid: e94950a6cd82de243a5ffe4a3876f2dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 14.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839819483288939474, guid: e94950a6cd82de243a5ffe4a3876f2dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3839819483470096288, guid: e94950a6cd82de243a5ffe4a3876f2dc, type: 3}
       propertyPath: jumpDistance
-      value: 2
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839819483470096288, guid: e94950a6cd82de243a5ffe4a3876f2dc, type: 3}
+      propertyPath: runMultipler
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839819483470096288, guid: e94950a6cd82de243a5ffe4a3876f2dc, type: 3}
+      propertyPath: walkMultipler
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8113716812346755254, guid: e94950a6cd82de243a5ffe4a3876f2dc, type: 3}
       propertyPath: m_RootOrder
