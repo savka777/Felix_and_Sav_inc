@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Prefabs/PlayerAnimations/PlayerInput.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Prefabs/MainPlayerAsset/PlayerInput.inputactions'
 
 using System;
 using System.Collections;
@@ -30,6 +30,14 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""name"": ""Run"",
                     ""type"": ""Button"",
                     ""id"": ""1ed94191-b8af-43eb-bd29-476fe97be6ea"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": ""NormalizeVector2"",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""137aa5dd-9866-4044-9256-5b7a281e6252"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": ""NormalizeVector2"",
                     ""interactions"": """"
@@ -123,6 +131,28 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""action"": ""Run"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c58eb9d5-b885-47ab-9f04-e2d75fc4b628"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""66bdbf37-f4da-4737-bb8f-c3a108b70a19"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -133,6 +163,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         m_CharacterConrols = asset.FindActionMap("CharacterConrols", throwIfNotFound: true);
         m_CharacterConrols_Move = m_CharacterConrols.FindAction("Move", throwIfNotFound: true);
         m_CharacterConrols_Run = m_CharacterConrols.FindAction("Run", throwIfNotFound: true);
+        m_CharacterConrols_Jump = m_CharacterConrols.FindAction("Jump", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -184,12 +215,14 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     private ICharacterConrolsActions m_CharacterConrolsActionsCallbackInterface;
     private readonly InputAction m_CharacterConrols_Move;
     private readonly InputAction m_CharacterConrols_Run;
+    private readonly InputAction m_CharacterConrols_Jump;
     public struct CharacterConrolsActions
     {
         private @PlayerInput m_Wrapper;
         public CharacterConrolsActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_CharacterConrols_Move;
         public InputAction @Run => m_Wrapper.m_CharacterConrols_Run;
+        public InputAction @Jump => m_Wrapper.m_CharacterConrols_Jump;
         public InputActionMap Get() { return m_Wrapper.m_CharacterConrols; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -205,6 +238,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @Run.started -= m_Wrapper.m_CharacterConrolsActionsCallbackInterface.OnRun;
                 @Run.performed -= m_Wrapper.m_CharacterConrolsActionsCallbackInterface.OnRun;
                 @Run.canceled -= m_Wrapper.m_CharacterConrolsActionsCallbackInterface.OnRun;
+                @Jump.started -= m_Wrapper.m_CharacterConrolsActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_CharacterConrolsActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_CharacterConrolsActionsCallbackInterface.OnJump;
             }
             m_Wrapper.m_CharacterConrolsActionsCallbackInterface = instance;
             if (instance != null)
@@ -215,6 +251,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @Run.started += instance.OnRun;
                 @Run.performed += instance.OnRun;
                 @Run.canceled += instance.OnRun;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
             }
         }
     }
@@ -223,5 +262,6 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
 }
