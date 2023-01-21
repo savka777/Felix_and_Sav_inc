@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//later ground needs to be set to seprate layer when we build obsitlce course *
+//**When creating obsticle course, make sure the platforms have the ground layer attached or else character movement will be impaired**
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -19,11 +19,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float gravity;
 
     [SerializeField] private float jumpHeight;
-   // [SerializeField] public float forwardForce = 10f;
-    private Rigidbody rb;
+
+    [SerializeField] private float jumpWidthDistance;
+    // [SerializeField] public float forwardForce = 10f;
+
 
     //need to add isfalling and isgrounded and redo some animations for the jump 
     private bool isJumping;
+    private bool isGrounded;
+
+
     private Vector3 moveDirection;
     //keeps track of gravity
     private Vector3 velocity;
@@ -35,13 +40,14 @@ public class PlayerMovement : MonoBehaviour
     //REF 
     private CharacterController controller;
     private Animator anim;
+    private Rigidbody rb;
 
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
         anim = GetComponentInChildren<Animator>();
-       //rb = GetComponent<Rigidbody>();
+       rb = GetComponent<Rigidbody>();
     }
 
     //calls each frame
@@ -95,14 +101,18 @@ public class PlayerMovement : MonoBehaviour
             moveDirection *= moveSpeed;
             if (Input.GetKeyDown(KeyCode.Space))
             {
+               
                 Jump();
+                rb.AddForce(new Vector3(0, 1000, 0), ForceMode.Impulse);
+                velocity.y += gravity * Time.deltaTime;
+
             }
 
         
         }
         
 
-        //  moveDirection *= walkSpeed;
+        //moveDirection *= walkSpeed;
         controller.Move(moveDirection * Time.deltaTime);
 
         velocity.y += gravity * Time.deltaTime;
@@ -128,13 +138,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        //anim.SetBool("IsJumping", true);
-        velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+        // anim.SetBool("IsJumping", true);
+        //isJumping = true;
+       velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
     }
 
     private void Slide()
     {
-        
        anim.SetTrigger("Slide");
     }
 }
