@@ -6,11 +6,11 @@ public class Enemy : MonoBehaviour
 {
     Animator animator;
     GameObject player;
-    [SerializeField] private bool isGround;
+    /*[SerializeField] private bool isGround;
     [SerializeField] private float groundCheckDistance;
     [SerializeField] private LayerMask groundMask;
     private Vector3 velocity;
-    [SerializeField] private float gravity;
+    [SerializeField] private float gravity;*/
     void Start()
     {
         player = GameObject.Find("C02");
@@ -26,13 +26,13 @@ public class Enemy : MonoBehaviour
         transform.position += direction *3* Time.deltaTime;
         Vector3 minDirection = new  Vector3(0, direction.y, 0);
         transform.rotation = Quaternion.LookRotation(direction-(minDirection));
-        isGround = Physics.CheckSphere(transform.position, groundCheckDistance, groundMask);
+        /*isGround = Physics.CheckSphere(transform.position, groundCheckDistance, groundMask);
 
         //once player is grounded, stop the gravity
         if (isGround && velocity.y < 0)
         {
             velocity.y = -2f;
         }
-        velocity.y += gravity * Time.deltaTime;
+        velocity.y += gravity * Time.deltaTime;*/
     }
 }
