@@ -3623,8 +3623,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5762902411667128209}
   - component: {fileID: 5762902411660218455}
+  - component: {fileID: 260559361344709973}
+  - component: {fileID: 3353508153843993017}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3671,6 +3673,38 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &260559361344709973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5762902411667481585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 544828fd3e1b4654088a4c2172e028a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGround: 0
+  groundCheckDistance: 0
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
+  gravity: 0
+--- !u!136 &3353508153843993017
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5762902411667481585}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.49165
+  m_Height: 1.6362666
+  m_Direction: 1
+  m_Center: {x: 0.008350015, y: 0.7957464, z: 0}
 --- !u!1 &5762902411667481589
 GameObject:
   m_ObjectHideFlags: 0
