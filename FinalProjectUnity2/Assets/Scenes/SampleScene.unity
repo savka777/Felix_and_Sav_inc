@@ -243,6 +243,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform
       objectReference: {fileID: 0}
+    - target: {fileID: 3185794077092109769, guid: 517a5956da4472d44903441aa9649b4a, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4466627596671251458, guid: 517a5956da4472d44903441aa9649b4a, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -352,6 +356,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -616497792107727566, guid: 1235f6fdfe904874cab3c83e4a67727c, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 260559361344709973, guid: 1235f6fdfe904874cab3c83e4a67727c, type: 3}
       propertyPath: gravity
       value: 1
@@ -374,7 +382,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5762902411667128209, guid: 1235f6fdfe904874cab3c83e4a67727c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.43
+      value: -1.93
       objectReference: {fileID: 0}
     - target: {fileID: 5762902411667128209, guid: 1235f6fdfe904874cab3c83e4a67727c, type: 3}
       propertyPath: m_LocalPosition.z
