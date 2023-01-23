@@ -207,5 +207,5 @@ public class AnimationMovementController : MonoBehaviour
             playerInput.CharacterConrols.Disable();
 
         }
-    
+
 }
