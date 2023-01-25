@@ -856,6 +856,7 @@ MonoBehaviour:
   runMultipler: 10
   walkMultipler: 5
   rotationFactorPerFrame: 10
+  jumpDistance: 1
 --- !u!1 &8113716812346856664
 GameObject:
   m_ObjectHideFlags: 0
