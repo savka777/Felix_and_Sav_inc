@@ -6,78 +6,79 @@ public class Enemy : MonoBehaviour
 {
     Animator animator;
     GameObject player;
+    [SerializeField] Vector3 target1;
+    [SerializeField] Vector3 target2;
+    
     CharacterController character;
-
+    Vector3 direction;
 
     //Jumping code
-    bool isJumpPressed = false;
+    
     float initialJumpVelocity;
-    float maxJumpHeight = 4.0f;
-    float maxJumpTime = 0.75f;
-    [SerializeField] float jumpDistance = 1.0f;
-    bool isJumping = false;
-    float gravity = -9.8f;
-    //gravity code
-    /*
-[SerializeField] private bool isGround;
-[SerializeField] private float groundCheckDistance;
-[SerializeField] private LayerMask groundMask;
-private Vector3 velocity;
-[SerializeField] private float gravity;*/
+    float maxJumpHeight = 800.0f;
+    
+    [SerializeField] float jumpDistance = 10.0f;
     void Start()
     {
         player = GameObject.Find("C02");
         animator = GetComponent<Animator>();
         animator.SetBool("IsWalking", true);
         character = GetComponent<CharacterController>();
-        setUpJumpVariables();
+        target1.y = gameObject.transform.position.y;
+        target2.y = gameObject.transform.position.y;
+        StartCoroutine(ranJumpCoroutine());
     }
 
 // Update is called once per frame
     void Update()
     {
-       
-        Vector3 direction = (player.transform.position) - (gameObject.transform.position);
+        if (Vector3.Distance(transform.position, target1) < 0.5f)
+        {
+            direction = (target2) - (gameObject.transform.position);
+        }
+        if (Vector3.Distance(transform.position, target2) < 0.5f)
+        {
+            direction = (target1) - (gameObject.transform.position);
+        }
+        if (Vector3.Distance(gameObject.transform.position, player.transform.position) < 5f)
+        {
+            direction = (player.transform.position) - (gameObject.transform.position);
+        }
+        
+
+
+
         direction.Normalize();
-        //transform.position += direction *3* Time.deltaTime;
+        
         character.Move(direction* Time.deltaTime*3);
         Vector3 minDirection = new  Vector3(0, direction.y, 0);
         transform.rotation = Quaternion.LookRotation(direction-(minDirection));
+        
 
 
 
-
-    //gravity code
-    /*
-    isGround = Physics.CheckSphere(transform.position, groundCheckDistance, groundMask);
-
-    //once player is grounded, stop the gravity
-    if (isGround && velocity.y < 0)
-    {
-        velocity.y = -2f;
+    
     }
-    velocity.y += gravity * Time.deltaTime;*/
-    }
-    void setUpJumpVariables()
-    {
-        float timeToApex = maxJumpTime / 2;
-        gravity = (-2 * maxJumpHeight) / Mathf.Pow(timeToApex, 2);
-        initialJumpVelocity = (2 * maxJumpHeight) / timeToApex;
-    }
-    void handleJump()
-    {
+    
+   
 
-
-        if (!isJumping && character.isGrounded && isJumpPressed)
+    
+    IEnumerator ranJumpCoroutine()
+    {
+        do
         {
-            animator.SetBool("isJumping", true);
-            isJumping = true;
-            //direction.y = initialJumpVelocity * jumpDistance; ;
-            //direction.y = initialJumpVelocity * jumpDistance;
-        }
-        else if (!isJumpPressed && isJumping && character.isGrounded)
-        {
-            isJumping = false;
-        }
+            float currentHight = transform.position.y;
+            int ran = Random.Range(1, 11);
+            int i = 0;
+            yield return new WaitForSeconds(ran);
+            do
+            {
+                character.Move(Vector3.up * maxJumpHeight * 0.1f * Time.deltaTime);
+                yield return new WaitForSeconds(0.01f);
+                i++;
+            } while (i <= 10);
+            yield return new WaitForSeconds(5f);
+            
+        } while (true);
     }
 }
