@@ -356,10 +356,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -616497792107727566, guid: 1235f6fdfe904874cab3c83e4a67727c, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 260559361344709973, guid: 1235f6fdfe904874cab3c83e4a67727c, type: 3}
       propertyPath: gravity
       value: 1
@@ -371,6 +367,10 @@ PrefabInstance:
     - target: {fileID: 260559361344709973, guid: 1235f6fdfe904874cab3c83e4a67727c, type: 3}
       propertyPath: groundCheckDistance
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139004654783089795, guid: 1235f6fdfe904874cab3c83e4a67727c, type: 3}
+      propertyPath: m_Center.y
+      value: 0.81
       objectReference: {fileID: 0}
     - target: {fileID: 5762902411667128209, guid: 1235f6fdfe904874cab3c83e4a67727c, type: 3}
       propertyPath: m_RootOrder
