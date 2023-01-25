@@ -81,4 +81,13 @@ public class Enemy : MonoBehaviour
             
         } while (true);
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        AnimationMovementController animovement = other.GetComponent<AnimationMovementController>();
+        if (animovement)
+        {
+            animator.SetBool("IsPunch", true);
+        }
+        
+    }
 }
