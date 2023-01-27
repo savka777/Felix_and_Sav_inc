@@ -60,9 +60,6 @@ public class Enemy : MonoBehaviour
 
     }
 
-
-
-
     IEnumerator ranJumpCoroutine()
     {
         do
