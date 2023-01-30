@@ -509,19 +509,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 260559361344709973, guid: 1235f6fdfe904874cab3c83e4a67727c, type: 3}
       propertyPath: target1.x
-      value: 7
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 260559361344709973, guid: 1235f6fdfe904874cab3c83e4a67727c, type: 3}
       propertyPath: target1.z
-      value: 7
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 260559361344709973, guid: 1235f6fdfe904874cab3c83e4a67727c, type: 3}
       propertyPath: target2.x
-      value: -8
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 260559361344709973, guid: 1235f6fdfe904874cab3c83e4a67727c, type: 3}
       propertyPath: target2.z
-      value: 7
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 260559361344709973, guid: 1235f6fdfe904874cab3c83e4a67727c, type: 3}
       propertyPath: groundMask.m_Bits
@@ -561,7 +561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5762902411667128209, guid: 1235f6fdfe904874cab3c83e4a67727c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.95
+      value: -5.16
       objectReference: {fileID: 0}
     - target: {fileID: 5762902411667128209, guid: 1235f6fdfe904874cab3c83e4a67727c, type: 3}
       propertyPath: m_LocalPosition.y

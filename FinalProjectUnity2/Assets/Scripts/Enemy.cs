@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
         character = GetComponent<CharacterController>();
         target1.y = gameObject.transform.position.y;
         target2.y = gameObject.transform.position.y;
+        direction = (target1) - (gameObject.transform.position);
         StartCoroutine(ranJumpCoroutine());
     }
 
