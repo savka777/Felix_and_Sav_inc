@@ -8,15 +8,15 @@ public class Enemy : MonoBehaviour
     GameObject player;
     [SerializeField] Vector3 target1;
     [SerializeField] Vector3 target2;
-    
+
     CharacterController character;
     Vector3 direction;
 
     //Jumping code
-    
+
     float initialJumpVelocity;
     float maxJumpHeight = 800.0f;
-    
+
     [SerializeField] float jumpDistance = 10.0f;
     void Start()
     {
@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
         StartCoroutine(ranJumpCoroutine());
     }
 
-// Update is called once per frame
+    // Update is called once per frame
     void Update()
     {
         if (Vector3.Distance(transform.position, target1) < 0.5f)
@@ -44,25 +44,22 @@ public class Enemy : MonoBehaviour
         {
             direction = (player.transform.position) - (gameObject.transform.position);
         }
-        
+
 
 
 
         direction.Normalize();
-        
-        character.Move(direction* Time.deltaTime*3);
-        Vector3 minDirection = new  Vector3(0, direction.y, 0);
-        transform.rotation = Quaternion.LookRotation(direction-(minDirection));
-        
+
+        character.Move(direction * Time.deltaTime * 3);
+        Vector3 minDirection = new Vector3(0, direction.y, 0);
+        transform.rotation = Quaternion.LookRotation(direction - (minDirection));
 
 
 
-    
+
+
     }
-    
-   
 
-    
     IEnumerator ranJumpCoroutine()
     {
         do
@@ -78,7 +75,7 @@ public class Enemy : MonoBehaviour
                 i++;
             } while (i <= 10);
             yield return new WaitForSeconds(5f);
-            
+
         } while (true);
     }
     private void OnTriggerEnter(Collider other)
@@ -88,6 +85,6 @@ public class Enemy : MonoBehaviour
         {
             animator.SetBool("IsPunch", true);
         }
-        
+
     }
 }

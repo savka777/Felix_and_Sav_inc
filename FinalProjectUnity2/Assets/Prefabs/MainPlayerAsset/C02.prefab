@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3839819483288939475}
   m_LocalRotation: {x: 0.13052616, y: -0, z: -0, w: 0.9914449}
-  m_LocalPosition: {x: 0.07, y: 1.93, z: -3.34}
+  m_LocalPosition: {x: 0.07, y: 1.92, z: -3.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8113716812346755254}
@@ -774,7 +774,6 @@ GameObject:
   - component: {fileID: 8113716812356380528}
   - component: {fileID: 3839819483470096293}
   - component: {fileID: 3839819483470096288}
-  - component: {fileID: 1644233984}
   m_Layer: 0
   m_Name: C02
   m_TagString: Untagged
@@ -858,20 +857,6 @@ MonoBehaviour:
   walkMultipler: 5
   rotationFactorPerFrame: 10
   jumpDistance: 1
---- !u!136 &1644233984
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8113716812346856662}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.5213058
-  m_Height: 2.4101639
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.70508194, z: 0.00028014183}
 --- !u!1 &8113716812346856664
 GameObject:
   m_ObjectHideFlags: 0
