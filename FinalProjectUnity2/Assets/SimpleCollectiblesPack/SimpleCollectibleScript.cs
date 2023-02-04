@@ -1,10 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 [RequireComponent(typeof(AudioSource))]
 public class SimpleCollectibleScript : MonoBehaviour {
 
+
+	public int coinCount = 0;
+	public Text coinText;
+	public TMP_Text textCounter;
 	public enum CollectibleTypes {NoType, Type1, Type2, Type3, Type4, Type5}; // you can replace this with your own labels for the types of collectibles in your game!
 
 	public CollectibleTypes CollectibleType; // this gameObject's type
@@ -27,17 +33,27 @@ public class SimpleCollectibleScript : MonoBehaviour {
 
 		if (rotate)
 			transform.Rotate (Vector3.up * rotationSpeed * Time.deltaTime, Space.World);
+			
 
 	}
 
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.tag == "Player") {
+			coinCount++;
 			Collect ();
+			//coinText.text = "Coins: " + coinCount.ToString();
+		}
+		if (other.CompareTag("Player"))
+		{
+			int count = int.Parse(textCounter.text);
+			count++;
+			textCounter.text = count.ToString();
+			gameObject.SetActive(false);
 		}
 	}
 
-	public void Collect()
+public void Collect()
 	{
 		if(collectSound)
 			AudioSource.PlayClipAtPoint(collectSound, transform.position);
