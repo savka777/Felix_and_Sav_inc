@@ -72,7 +72,7 @@ public class AnimationMovementController : MonoBehaviour
 
             if (!isJumping && characterController.isGrounded && isJumpPressed)
             {
-            //animator.SetBool("isJumping", true);
+            animator.SetBool("isJumping", true);
                 isJumping = true;
             currentMovement.y = initialJumpVelocity * jumpDistance; ;
                 currentRunMovement.y = initialJumpVelocity * jumpDistance;
