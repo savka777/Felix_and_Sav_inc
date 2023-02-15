@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     Animator animator;
     GameObject player;
+    [SerializeField] public BoxCollider head;
     [SerializeField] Vector3 target1;
     [SerializeField] Vector3 target2;
 
@@ -56,7 +57,10 @@ public class Enemy : MonoBehaviour
         Vector3 minDirection = new Vector3(0, direction.y, 0);
         transform.rotation = Quaternion.LookRotation(direction - (minDirection));
     }
-
+    public void Die()
+    {
+        Destroy(gameObject);
+    }
 
 
     IEnumerator ranJumpCoroutine()
@@ -87,8 +91,11 @@ public class Enemy : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
-            playerHealth.TakeDamage(damage);
+            if (!animovement.invJump)
+            {
+                PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+                playerHealth.TakeDamage(damage);
+            }
         }
 
     }

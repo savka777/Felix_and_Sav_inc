@@ -157,10 +157,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.71877813
-  m_Height: 2.8698385
+  m_Radius: 0.58880347
+  m_Height: 2.4791014
   m_Direction: 1
-  m_Center: {x: -0.12549108, y: 0.93491924, z: 0.09328699}
+  m_Center: {x: 0.00448364, y: 1.1302878, z: 0.09328699}
 --- !u!1001 &296109125
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -544,7 +544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 540946446676953090, guid: dec2f39cefcc0e542a349d27d59cb192, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 36.02
+      value: 48.58
       objectReference: {fileID: 0}
     - target: {fileID: 540946446676953090, guid: dec2f39cefcc0e542a349d27d59cb192, type: 3}
       propertyPath: m_LocalRotation.w
@@ -578,8 +578,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy v1
       objectReference: {fileID: 0}
+    - target: {fileID: 5468939514464637638, guid: dec2f39cefcc0e542a349d27d59cb192, type: 3}
+      propertyPath: head
+      value: 
+      objectReference: {fileID: 969124047}
+    - target: {fileID: 5468939514464637638, guid: dec2f39cefcc0e542a349d27d59cb192, type: 3}
+      propertyPath: target1.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468939514464637638, guid: dec2f39cefcc0e542a349d27d59cb192, type: 3}
+      propertyPath: target1.z
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468939514464637638, guid: dec2f39cefcc0e542a349d27d59cb192, type: 3}
+      propertyPath: target2.x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468939514464637638, guid: dec2f39cefcc0e542a349d27d59cb192, type: 3}
+      propertyPath: target2.z
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 7196907173114430674, guid: dec2f39cefcc0e542a349d27d59cb192, type: 3}
+      propertyPath: m_Size.y
+      value: 0.34657156
+      objectReference: {fileID: 0}
+    - target: {fileID: 7196907173114430674, guid: dec2f39cefcc0e542a349d27d59cb192, type: 3}
+      propertyPath: m_Center.y
+      value: 1.5957057
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dec2f39cefcc0e542a349d27d59cb192, type: 3}
+--- !u!65 &969124047 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 7196907173114430674, guid: dec2f39cefcc0e542a349d27d59cb192, type: 3}
+  m_PrefabInstance: {fileID: 969124046}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &987408094
 PrefabInstance:
   m_ObjectHideFlags: 0
