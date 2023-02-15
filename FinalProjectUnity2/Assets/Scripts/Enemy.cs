@@ -21,14 +21,14 @@ public class Enemy : MonoBehaviour
     [SerializeField] float jumpDistance = 10.0f;
     void Start()
     {
-        player = GameObject.Find("C02");
+        player = GameObject.FindGameObjectWithTag("Player");
         animator = GetComponent<Animator>();
         animator.SetBool("IsWalking", true);
         character = GetComponent<CharacterController>();
         target1.y = gameObject.transform.position.y;
         target2.y = gameObject.transform.position.y;
         direction = (target1) - (gameObject.transform.position);
-        StartCoroutine(ranJumpCoroutine());
+        //StartCoroutine(ranJumpCoroutine());
     }
 
     // Update is called once per frame
