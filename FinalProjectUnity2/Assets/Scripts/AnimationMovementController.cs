@@ -7,7 +7,7 @@ public class AnimationMovementController : MonoBehaviour
 {
     PlayerInput playerInput;
     CharacterController characterController;
-     Animator animator;
+    Animator animator;
 
 
     int isWalkingHash;
@@ -182,11 +182,16 @@ public class AnimationMovementController : MonoBehaviour
             }
         }
 
-       /* public void DeathAnimation()
-         {
-            animator.SetTrigger("Death");
-         }*/
-        void Update()
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            animator.SetTrigger("Dead");
+
+        }
+
+    }
+    void Update()
         {
             handleRotation();
             handleAnimation();

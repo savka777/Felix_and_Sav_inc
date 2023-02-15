@@ -33,7 +33,7 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("Player died.");
 
-        Invoke("ShowLoseScreen", 0.5f);
+        Invoke("ShowLoseScreen", 1.5f);
 
         //bug need fixing, camera needs to be attached outside of player or else everything gets destroyed
         //Destroy(gameObject, 1.0f);
@@ -49,6 +49,10 @@ public class PlayerHealth : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Enemy")
-        explosion.Play();
+        {
+            explosion.Play();
+           
+        }
+       
     }
 }
