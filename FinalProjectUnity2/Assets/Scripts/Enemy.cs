@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
         target1.y = gameObject.transform.position.y;
         target2.y = gameObject.transform.position.y;
         direction = (target1) - (gameObject.transform.position);
-        StartCoroutine(ranJumpCoroutine());
+        //StartCoroutine(ranJumpCoroutine());
     }
 
     // Update is called once per frame
