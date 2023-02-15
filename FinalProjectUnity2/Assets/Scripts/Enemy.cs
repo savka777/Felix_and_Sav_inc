@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float jumpDistance = 10.0f;
     void Start()
     {
-        player = GameObject.Find("C02");
+        player = GameObject.FindGameObjectWithTag("Player");
         animator = GetComponent<Animator>();
         animator.SetBool("IsWalking", true);
         character = GetComponent<CharacterController>();
