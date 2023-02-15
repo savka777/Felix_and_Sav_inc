@@ -7,7 +7,8 @@ public class AnimationMovementController : MonoBehaviour
 {
     PlayerInput playerInput;
     CharacterController characterController;
-    Animator animator;
+     Animator animator;
+
 
     int isWalkingHash;
     int isRunningHash;
@@ -180,6 +181,11 @@ public class AnimationMovementController : MonoBehaviour
                 currentRunMovement.y += gravity * Time.deltaTime;
             }
         }
+
+       /* public void DeathAnimation()
+         {
+            animator.SetTrigger("Death");
+         }*/
         void Update()
         {
             handleRotation();
