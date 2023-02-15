@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
 
     float initialJumpVelocity;
     float maxJumpHeight = 800.0f;
+    public int damage = 100;
 
     [SerializeField] float jumpDistance = 10.0f;
     void Start()
@@ -54,12 +55,9 @@ public class Enemy : MonoBehaviour
         character.Move(direction * Time.deltaTime * 3);
         Vector3 minDirection = new Vector3(0, direction.y, 0);
         transform.rotation = Quaternion.LookRotation(direction - (minDirection));
-
-
-
-
-
     }
+
+
 
     IEnumerator ranJumpCoroutine()
     {
@@ -85,6 +83,12 @@ public class Enemy : MonoBehaviour
         if (animovement)
         {
             animator.SetBool("IsPunch", true);
+        }
+
+        if (other.CompareTag("Player"))
+        {
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+            playerHealth.TakeDamage(damage);
         }
 
     }
