@@ -15,11 +15,11 @@ public class Enemy : MonoBehaviour
 
     //Jumping code
 
-    float initialJumpVelocity;
-    float maxJumpHeight = 800.0f;
+    
+    
     public int damage = 100;
 
-    [SerializeField] float jumpDistance = 10.0f;
+    
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -73,7 +73,7 @@ public class Enemy : MonoBehaviour
             yield return new WaitForSeconds(ran);
             do
             {
-                character.Move(Vector3.up * maxJumpHeight * 0.1f * Time.deltaTime);
+                character.Move(Vector3.up *  0.1f * Time.deltaTime);
                 yield return new WaitForSeconds(0.01f);
                 i++;
             } while (i <= 10);

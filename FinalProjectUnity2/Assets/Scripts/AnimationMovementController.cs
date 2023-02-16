@@ -194,7 +194,14 @@ public class AnimationMovementController : MonoBehaviour
             animator.SetTrigger("Dead");
 
         }
-
+        Enemy enemy = other.GetComponent<Enemy>();
+        if (enemy.head)
+        {
+            if (invJump)
+            {
+                enemy.Die();
+            }
+        }
     }
     void Update()
         {
@@ -228,16 +235,6 @@ public class AnimationMovementController : MonoBehaviour
             playerInput.CharacterConrols.Disable();
 
         }
-    private void OnTriggerEnter(Collider other)
-    {
-        Enemy enemy = other.GetComponent<Enemy>();
-        if (enemy.head)
-        {
-            if (invJump)
-            {
-                enemy.Die();
-            }
-        }
-    }
+    
 
 }
