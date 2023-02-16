@@ -9,6 +9,7 @@ public class AnimationMovementController : MonoBehaviour
     CharacterController characterController;
     Animator animator;
 
+
     int isWalkingHash;
     int isRunningHash;
 
@@ -185,7 +186,17 @@ public class AnimationMovementController : MonoBehaviour
                 currentRunMovement.y += gravity * Time.deltaTime;
             }
         }
-        void Update()
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            animator.SetTrigger("Dead");
+
+        }
+
+    }
+    void Update()
         {
             handleRotation();
             handleAnimation();
