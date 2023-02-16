@@ -36,7 +36,7 @@ public class PlayerHealth : MonoBehaviour
         Invoke("ShowLoseScreen", 1.5f);
 
         //bug need fixing, camera needs to be attached outside of player or else everything gets destroyed
-        //Destroy(gameObject, 1.0f);
+       /// Destroy(gameObject, 1.0f);
 
         // Add code to handle player death here, such as displaying a game over message or restarting the game.
     }
