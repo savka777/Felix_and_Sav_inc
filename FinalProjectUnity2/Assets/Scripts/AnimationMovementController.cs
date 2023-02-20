@@ -39,6 +39,8 @@ public class AnimationMovementController : MonoBehaviour
     float gravity = -9.8f;
 
 
+
+
     void Awake()
     {
         playerInput = new PlayerInput();
@@ -93,7 +95,8 @@ public class AnimationMovementController : MonoBehaviour
             isRunPressed = context.ReadValueAsButton();
         }
 
-        void onMovementInput(InputAction.CallbackContext context)
+
+    void onMovementInput(InputAction.CallbackContext context)
         {
             currentMovementInput = context.ReadValue<Vector2>();
             currentMovement.x = currentMovementInput.x * walkMultipler;
@@ -190,6 +193,11 @@ public class AnimationMovementController : MonoBehaviour
 
         }
 
+    }
+
+    public float increaseSpeed(float speed)
+    {
+        return walkMultipler * speed;
     }
     void Update()
         {
