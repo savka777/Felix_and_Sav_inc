@@ -33,11 +33,14 @@ public class AnimationMovementController : MonoBehaviour
     float maxJumpHeight = 4.0f;
     float maxJumpTime = 0.75f;
     [SerializeField] float jumpDistance = 1.0f;
-    bool isJumping = false;
+    public bool isJumping = false;
     
     float groundedGravity = -.05f;
     float gravity = -9.8f;
 
+    //invincible while jumping
+    public float timer;
+    public bool invJump;
 
 
 
@@ -75,9 +78,11 @@ public class AnimationMovementController : MonoBehaviour
 
             if (!isJumping && characterController.isGrounded && isJumpPressed)
             {
-            animator.SetBool("isJumping", true);
+                animator.SetBool("isJumping", true);
                 isJumping = true;
-            currentMovement.y = initialJumpVelocity * jumpDistance; ;
+                invJump = true;
+                timer = 1.75f;
+                currentMovement.y = initialJumpVelocity * jumpDistance; ;
                 currentRunMovement.y = initialJumpVelocity * jumpDistance;
             }
             else if(!isJumpPressed && isJumping && characterController.isGrounded)
@@ -192,7 +197,14 @@ public class AnimationMovementController : MonoBehaviour
             animator.SetTrigger("Dead");
 
         }
-
+        Enemy enemy = other.GetComponent<Enemy>();
+        if (enemy.head)
+        {
+            if (invJump)
+            {
+                enemy.Die();
+            }
+        }
     }
 
     public float increaseSpeed(float speed)
@@ -213,6 +225,11 @@ public class AnimationMovementController : MonoBehaviour
             }
             handleGravity();
             handleJump();
+            timer -= Time.deltaTime; // this is for enemy collision
+            if(timer <= 0)
+            {
+                invJump = false;
+            }
         }
 
         void OnEnable()
@@ -226,5 +243,6 @@ public class AnimationMovementController : MonoBehaviour
             playerInput.CharacterConrols.Disable();
 
         }
+    
 
 }
