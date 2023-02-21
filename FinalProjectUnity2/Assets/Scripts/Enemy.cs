@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] public BoxCollider head;
     [SerializeField] Vector3 target1;
     [SerializeField] Vector3 target2;
-
+    float timer;
     CharacterController character;
     Vector3 direction;
 
@@ -47,13 +47,22 @@ public class Enemy : MonoBehaviour
         {
             direction = (player.transform.position) - (gameObject.transform.position);
         }
-
+        if (animator.GetBool("IsPunch"))
+        {
+            if (timer <= 0)
+            {
+                animator.SetBool("IsPunch", false);
+            }
+        }
+        timer -= Time.deltaTime;
 
 
 
         direction.Normalize();
-
-        character.Move(direction * Time.deltaTime * 3);
+        if (!animator.GetBool("IsPunch"))
+        {
+            character.Move(direction * Time.deltaTime * 3);
+        }
         Vector3 minDirection = new Vector3(0, direction.y, 0);
         transform.rotation = Quaternion.LookRotation(direction - (minDirection));
     }
@@ -87,6 +96,7 @@ public class Enemy : MonoBehaviour
         if (animovement)
         {
             animator.SetBool("IsPunch", true);
+            timer = 1.5f;
         }
 
         if (other.CompareTag("Player"))
