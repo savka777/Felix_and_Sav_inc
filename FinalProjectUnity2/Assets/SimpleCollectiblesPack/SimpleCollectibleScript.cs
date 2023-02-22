@@ -5,17 +5,18 @@ using UnityEngine.UI;
 using TMPro;
 
 [RequireComponent(typeof(AudioSource))]
-public class SimpleCollectibleScript : MonoBehaviour {
+public class SimpleCollectibleScript : MonoBehaviour
+{
 
 
 	public int coinCount = 0;
 	public Text coinText;
 	public TMP_Text textCounter;
-	public enum CollectibleTypes {NoType, Type1, Type2, Type3, Type4, Type5}; // you can replace this with your own labels for the types of collectibles in your game!
+	public enum CollectibleTypes { NoType, IncreaseSpeed};
 
-	public CollectibleTypes CollectibleType; // this gameObject's type
+	public CollectibleTypes CollectibleType;
 
-	public bool rotate; // do you want it to rotate?
+	public bool rotate;
 
 	public float rotationSpeed;
 
@@ -23,25 +24,25 @@ public class SimpleCollectibleScript : MonoBehaviour {
 
 	public GameObject collectEffect;
 
-	// Use this for initialization
-	void Start () {
-		
+	void Start()
+	{
+
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+
+	void Update()
+	{
 
 		if (rotate)
-			transform.Rotate (Vector3.up * rotationSpeed * Time.deltaTime, Space.World);
-			
-
+			transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime, Space.World);
 	}
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.tag == "Player") {
+		if (other.tag == "Player")
+		{
 			coinCount++;
-			Collect ();
+			Collect();
 			//coinText.text = "Coins: " + coinCount.ToString();
 		}
 		if (other.CompareTag("Player"))
@@ -53,52 +54,23 @@ public class SimpleCollectibleScript : MonoBehaviour {
 		}
 	}
 
-public void Collect()
+	public void Collect()
 	{
-		if(collectSound)
+		if (collectSound)
 			AudioSource.PlayClipAtPoint(collectSound, transform.position);
-		if(collectEffect)
+		if (collectEffect)
 			Instantiate(collectEffect, transform.position, Quaternion.identity);
 
 		//Below is space to add in your code for what happens based on the collectible type
+		// copy and past and create new types for different collectible types
 
-		if (CollectibleType == CollectibleTypes.NoType) {
 
-			//Add in code here;
-
-			Debug.Log ("Do NoType Command");
+	
+		if (CollectibleType == CollectibleTypes.IncreaseSpeed)
+		{
+			Destroy(gameObject);
 		}
-		if (CollectibleType == CollectibleTypes.Type1) {
-
-			//Add in code here;
-
-			Debug.Log ("Do NoType Command");
-		}
-		if (CollectibleType == CollectibleTypes.Type2) {
-
-			//Add in code here;
-
-			Debug.Log ("Do NoType Command");
-		}
-		if (CollectibleType == CollectibleTypes.Type3) {
-
-			//Add in code here;
-
-			Debug.Log ("Do NoType Command");
-		}
-		if (CollectibleType == CollectibleTypes.Type4) {
-
-			//Add in code here;
-
-			Debug.Log ("Do NoType Command");
-		}
-		if (CollectibleType == CollectibleTypes.Type5) {
-
-			//Add in code here;
-
-			Debug.Log ("Do NoType Command");
-		}
-
-		Destroy (gameObject);
 	}
+
+
 }

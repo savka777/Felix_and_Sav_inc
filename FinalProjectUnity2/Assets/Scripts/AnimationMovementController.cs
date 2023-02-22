@@ -42,6 +42,8 @@ public class AnimationMovementController : MonoBehaviour
     public float timer;
     public bool invJump;
 
+
+
     void Awake()
     {
         playerInput = new PlayerInput();
@@ -98,7 +100,8 @@ public class AnimationMovementController : MonoBehaviour
             isRunPressed = context.ReadValueAsButton();
         }
 
-        void onMovementInput(InputAction.CallbackContext context)
+
+    void onMovementInput(InputAction.CallbackContext context)
         {
             currentMovementInput = context.ReadValue<Vector2>();
             currentMovement.x = currentMovementInput.x * walkMultipler;
@@ -202,6 +205,11 @@ public class AnimationMovementController : MonoBehaviour
                 enemy.Die();
             }
         }
+    }
+
+    public float increaseSpeed(float speed)
+    {
+        return walkMultipler * speed;
     }
     void Update()
         {
