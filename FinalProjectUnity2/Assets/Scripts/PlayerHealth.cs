@@ -33,7 +33,7 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("Player died.");
 
-        Invoke("ShowLoseScreen", 1.5f);
+        Invoke("ShowLoseScreen", .80f);
 
         //bug need fixing, camera needs to be attached outside of player or else everything gets destroyed
        /// Destroy(gameObject, 1.0f);
