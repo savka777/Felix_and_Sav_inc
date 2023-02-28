@@ -44,7 +44,10 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        if (!amc.invJump)
+        {
+            health -= damage;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
