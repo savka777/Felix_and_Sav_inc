@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 using UnityEngine.SceneManagement;
@@ -16,6 +17,9 @@ public class NavBTN : MonoBehaviour
     public void ButtonRestart()
     {
         Debug.Log("Click 2");
+        //Lightmapping.ClearLightingDataAsset();
         SceneManager.LoadScene(1);
+      // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+     
     }
 }

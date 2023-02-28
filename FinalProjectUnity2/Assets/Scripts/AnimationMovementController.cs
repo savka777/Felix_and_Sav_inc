@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class AnimationMovementController : MonoBehaviour
 {
@@ -213,7 +214,19 @@ public class AnimationMovementController : MonoBehaviour
     }
     void Update()
         {
-            handleRotation();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(1);
+        }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            SceneManager.LoadScene(0);
+        }
+        handleRotation();
             handleAnimation();
             if (isRunPressed)
             {
