@@ -16,10 +16,7 @@ public class PlayerHealth : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
+        
         if (health <= 0)
         {
             
