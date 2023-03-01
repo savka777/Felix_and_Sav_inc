@@ -33,21 +33,25 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         Debug.Log("Player died.");
+        Timer timer = FindObjectOfType<Timer>();
+        if (timer != null)
+        {
+            timer.timerIsRunning = false;
+        }
 
         Invoke("ShowLoseScreen", .80f);
 
         //bug need fixing, camera needs to be attached outside of player or else everything gets destroyed
-       /// Destroy(gameObject, 1.0f);
+       // Destroy(gameObject, 1.0f);
 
-        // Add code to handle player death here, such as displaying a game over message or restarting the game.
+       
     }
 
     public void TakeDamage(int damage)
     {
-        if (!amc.invJump)
-        {
-            health -= damage;
-        }
+
+        health -= damage;
+
     }
 
     private void OnTriggerEnter(Collider other)

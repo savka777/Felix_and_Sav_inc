@@ -12,8 +12,9 @@ public class Timer : MonoBehaviour
 {
     public TextMeshProUGUI timerText;
     private float startTime;
-    private bool timerIsRunning = false;
+    public bool timerIsRunning = false;
     private float countdownTime = 300f; // 5 minutes in seconds
+ 
 
 private void Start()
     {
@@ -24,10 +25,13 @@ private void Start()
 
     private void Update()
     {
+        
         if (timerIsRunning)
         {
             // Calculate the time remaining in the countdown and display it
             float timeRemaining = startTime - Time.time;
+
+           
             if (timeRemaining <= 0f)
             {
                 // If the countdown has reached 0, stop the timer and display "00:00"
@@ -51,5 +55,6 @@ private void Start()
             // Stop the timer when the player reaches the end objective
             timerIsRunning = false;
         }
+        
     }
 }
