@@ -195,8 +195,10 @@ public class AnimationMovementController : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            animator.SetTrigger("Dead");
-
+            if (!invJump)
+            {
+                animator.SetTrigger("Dead");
+            }
         }
         Enemy enemy = other.GetComponent<Enemy>();
         if (enemy.head)
