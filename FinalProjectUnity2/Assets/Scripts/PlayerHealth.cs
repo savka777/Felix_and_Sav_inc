@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    ParticleSystem explosion;
+    // ParticleSystem explosion;
+    public GameObject explosionEffect;
     public int health = 100;
     public GameObject LoseScreen;
     AnimationMovementController amc;
+    public bool isInvincible = false;
 
-   
+
     private void Start()
     {
-      explosion = GetComponent<ParticleSystem>();
+      //explosion = GetComponent<ParticleSystem>();
     }
     void Update()
     {
@@ -49,17 +51,18 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-
-        health -= damage;
-
-    }
+            if (!isInvincible)
+            {
+                health -= damage;
+            }
+        }
+    
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Enemy")
         {
-            explosion.Play();
-           
+            Instantiate(explosionEffect, transform.position, transform.rotation);
         }
        
     }

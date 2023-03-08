@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IncreaseSizePowerUp : MonoBehaviour
+public class PlayerHealthPowerUp : MonoBehaviour
 {
     public GameObject pickupEffect;
-    public float increaseSize = 2.0f;
-    // Start is called before the first frame update
+    public float invincibilityDuration = 5.0f;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -18,12 +18,18 @@ public class IncreaseSizePowerUp : MonoBehaviour
     IEnumerator Pickup(Collider player)
     {
         Instantiate(pickupEffect, transform.position, transform.rotation);
-        player.transform.localScale *= increaseSize;
+        PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+
+        // Make player invincible
+        playerHealth.isInvincible = true;
+
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Collider>().enabled = false;
 
-        yield return new WaitForSeconds(3.0f);
-        player.transform.localScale /= increaseSize;
+        yield return new WaitForSeconds(invincibilityDuration);
+
+        // Make player vulnerable again
+        playerHealth.isInvincible = false;
         Destroy(gameObject);
     }
 }

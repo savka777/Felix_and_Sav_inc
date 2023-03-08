@@ -193,12 +193,18 @@ public class AnimationMovementController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        PlayerHealth playerHealth = GetComponent<PlayerHealth>();
+        playerHealth.isInvincible = true;
         if (other.CompareTag("Enemy"))
         {
-            if (!invJump)
+            if(playerHealth.isInvincible == false)
             {
-                animator.SetTrigger("Dead");
+                if (!invJump)
+                {
+                    animator.SetTrigger("Dead");
+                }
             }
+           
 
         }
         Enemy enemy = other.GetComponent<Enemy>();
