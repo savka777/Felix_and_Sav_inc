@@ -9,6 +9,7 @@ public class IncreaseSpeedPowerUp : MonoBehaviour
     public GameObject pickupEffect;
     public float speedMultiplier = 2.0f;
     public float powerUpDuration = 5.0f;
+    public GameObject uiPanel;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -30,11 +31,15 @@ public class IncreaseSpeedPowerUp : MonoBehaviour
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Collider>().enabled = false;
 
+        uiPanel.SetActive(true); // Show UI panel
+
+
         yield return new WaitForSeconds(powerUpDuration);
 
         // Decrease player's speed
         playerMovement.runMultipler /= speedMultiplier;
         playerMovement.walkMultipler /= speedMultiplier;
+        uiPanel.SetActive(false);
 
         Destroy(gameObject);
     }

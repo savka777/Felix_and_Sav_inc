@@ -7,6 +7,7 @@ public class PlayerHealthPowerUp : MonoBehaviour
     public GameObject pickupEffect;
     public float invincibilityDuration = 5.0f;
     public float increaseSize = 2.0f;
+    public GameObject uiPanel;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -28,12 +29,15 @@ public class PlayerHealthPowerUp : MonoBehaviour
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Collider>().enabled = false;
 
+        uiPanel.SetActive(true); // Show UI panel
+
         yield return new WaitForSeconds(invincibilityDuration);
 
         // Make player vulnerable again
         playerHealth.isInvincible = false;
         player.transform.localScale /= increaseSize;
         Destroy(gameObject);
+        uiPanel.SetActive(false); 
     }
 }
 
