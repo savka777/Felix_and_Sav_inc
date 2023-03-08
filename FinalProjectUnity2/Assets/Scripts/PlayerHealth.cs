@@ -1,69 +1,79 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    // ParticleSystem explosion;
-    public GameObject explosionEffect;
     public int health = 100;
+    public float invincibilityDuration = 5.0f;
     public GameObject LoseScreen;
-    AnimationMovementController amc;
-    public bool isInvincible = true;
+    public bool isInvincible = false;
+    public bool isDead = false;
+    public GameObject explosionEffect;
 
-
-    private void Start()
+    private void Update()
     {
-      //explosion = GetComponent<ParticleSystem>();
-    }
-    void Update()
-    {
-        
-        if (health <= 0)
+        if (health <= 0 && !isDead)
         {
-            
             Die();
-  
         }
     }
 
-    void ShowLoseScreen()
-    {
-        LoseScreen.SetActive(true);
-    }
-
-    void Die()
+    public void Die()
     {
         Debug.Log("Player died.");
+        isDead = true;
+
+        // Stop the timer
         Timer timer = FindObjectOfType<Timer>();
         if (timer != null)
         {
             timer.timerIsRunning = false;
         }
 
-        Invoke("ShowLoseScreen", .80f);
+        // Show the lose screen
+        Instantiate(explosionEffect, transform.position, transform.rotation);
+        Invoke("ShowLoseScreen", .99f);
 
-        //bug need fixing, camera needs to be attached outside of player or else everything gets destroyed
-       // Destroy(gameObject, 1.0f);
-
-       
+        // Destroy the player
+        // Destroy(gameObject);
+    }
+    void ShowLoseScreen()
+    {
+        LoseScreen.SetActive(true);
     }
 
     public void TakeDamage(int damage)
     {
-            if (!isInvincible)
-            {
-                health -= damage;
-            }
+        if (!isInvincible)
+        {
+            health -= damage;
         }
-    
+    }
+
+    public void MakeInvincible()
+    {
+        isInvincible = true;
+        StartCoroutine(DisableInvincibility());
+    }
+
+    IEnumerator DisableInvincibility()
+    {
+        yield return new WaitForSeconds(invincibilityDuration);
+        isInvincible = false;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Enemy")
+        if (other.CompareTag("Enemy"))
         {
-            Instantiate(explosionEffect, transform.position, transform.rotation);
+            if (!isInvincible && isDead)
+            {
+
+                Die();
+            }
         }
-       
     }
 }
+

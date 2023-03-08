@@ -93,7 +93,7 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         AnimationMovementController animovement = other.GetComponent<AnimationMovementController>();
-        PlayerHealth playerHealth = GetComponent<PlayerHealth>();
+        //PlayerHealth playerHealth = GetComponent<PlayerHealth>();
 
         if (animovement)
         {
@@ -106,7 +106,7 @@ public class Enemy : MonoBehaviour
         {
             if (!animovement.invJump)
             {
-                //PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+                PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
                 playerHealth.TakeDamage(damage);
             }
         }

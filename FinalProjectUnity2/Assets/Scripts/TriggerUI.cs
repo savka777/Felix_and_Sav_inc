@@ -5,6 +5,7 @@ using UnityEngine;
 public class TriggerUI : MonoBehaviour
 {
   public  GameObject winScreen;
+  
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,8 @@ public class TriggerUI : MonoBehaviour
         {
             winScreen.SetActive(true);
         }
+
+      
     }
        
     }

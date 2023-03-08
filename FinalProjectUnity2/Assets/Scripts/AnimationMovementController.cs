@@ -11,8 +11,8 @@ public class AnimationMovementController : MonoBehaviour
     Animator animator;
 
 
-    int isWalkingHash;
-    int isRunningHash;
+    //int isWalkingHash;
+    //int isRunningHash;
 
     Vector2 currentMovementInput;
     Vector3 currentMovement;
@@ -51,8 +51,8 @@ public class AnimationMovementController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
 
-        isWalkingHash = Animator.StringToHash("isWalking");
-        isWalkingHash = Animator.StringToHash("isRunning");
+       // isWalkingHash = Animator.StringToHash("isWalking");
+        //isWalkingHash = Animator.StringToHash("isRunning");
 
         //callbacks
         playerInput.CharacterConrols.Move.started += onMovementInput;
@@ -194,18 +194,13 @@ public class AnimationMovementController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         PlayerHealth playerHealth = GetComponent<PlayerHealth>();
-        playerHealth.isInvincible = true;
         if (other.CompareTag("Enemy"))
         {
-            if(!playerHealth.isInvincible)
+            
+            if (!playerHealth.isInvincible && !invJump)
             {
-                if (!invJump)
-                {
-                    animator.SetTrigger("Dead");
-                }
+                animator.SetTrigger("Dead");
             }
-           
-
         }
         Enemy enemy = other.GetComponent<Enemy>();
         if (enemy.head)
