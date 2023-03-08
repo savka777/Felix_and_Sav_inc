@@ -4,24 +4,26 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    ParticleSystem explosion;
+    // ParticleSystem explosion;
+    public GameObject explosionEffect;
     public int health = 100;
     public GameObject LoseScreen;
     AnimationMovementController amc;
+    public bool isInvincible = true;
 
-   
+
     private void Start()
     {
-      explosion = GetComponent<ParticleSystem>();
+        //explosion = GetComponent<ParticleSystem>();
     }
     void Update()
     {
-        
+
         if (health <= 0)
         {
-            
+
             Die();
-  
+
         }
     }
 
@@ -38,27 +40,30 @@ public class PlayerHealth : MonoBehaviour
         {
             timer.timerIsRunning = false;
         }
+
         Invoke("ShowLoseScreen", .80f);
 
-       /// Destroy(gameObject, 1.0f);
+        //bug need fixing, camera needs to be attached outside of player or else everything gets destroyed
+        // Destroy(gameObject, 1.0f);
 
-        // Add code to handle player death here, such as displaying a game over message or restarting the game.
+
     }
 
     public void TakeDamage(int damage)
     {
-        
-        health -= damage;
-        
+        if (!isInvincible)
+        {
+            health -= damage;
+        }
     }
+
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Enemy")
+        if (other.tag == "Enemy")
         {
-            explosion.Play();
-           
+            Instantiate(explosionEffect, transform.position, transform.rotation);
         }
-       
+
     }
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 82831355036859214}
   - component: {fileID: 135408418541661930}
   m_Layer: 2
-  m_Name: Heart
+  m_Name: InvinsiblePowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

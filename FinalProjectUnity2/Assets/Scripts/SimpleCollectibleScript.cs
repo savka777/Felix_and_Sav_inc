@@ -12,7 +12,7 @@ public class SimpleCollectibleScript : MonoBehaviour
 	public int coinCount = 0;
 	public Text coinText;
 	public TMP_Text textCounter;
-	public enum CollectibleTypes { NoType, IncreaseSpeed};
+	public enum CollectibleTypes { NoType, IncreaseSpeed, IncreaseSize};
 
 	public CollectibleTypes CollectibleType;
 
@@ -52,6 +52,7 @@ public class SimpleCollectibleScript : MonoBehaviour
 			textCounter.text = count.ToString();
 			gameObject.SetActive(false);
 		}
+
 	}
 
 	public void Collect()
@@ -63,11 +64,6 @@ public class SimpleCollectibleScript : MonoBehaviour
 
 
 
-	
-		if (CollectibleType == CollectibleTypes.IncreaseSpeed)
-		{
-			Destroy(gameObject);
-		}
 	}
 
 
