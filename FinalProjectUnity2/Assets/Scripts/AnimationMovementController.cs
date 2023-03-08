@@ -197,7 +197,7 @@ public class AnimationMovementController : MonoBehaviour
         playerHealth.isInvincible = true;
         if (other.CompareTag("Enemy"))
         {
-            if(playerHealth.isInvincible == false)
+            if(!playerHealth.isInvincible)
             {
                 if (!invJump)
                 {

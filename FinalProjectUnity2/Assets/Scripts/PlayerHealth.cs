@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public int health = 100;
     public GameObject LoseScreen;
     AnimationMovementController amc;
-    public bool isInvincible = false;
+    public bool isInvincible = true;
 
 
     private void Start()
