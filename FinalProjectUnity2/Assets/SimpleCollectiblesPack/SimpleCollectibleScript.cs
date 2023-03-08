@@ -61,8 +61,6 @@ public class SimpleCollectibleScript : MonoBehaviour
 		if (collectEffect)
 			Instantiate(collectEffect, transform.position, Quaternion.identity);
 
-		//Below is space to add in your code for what happens based on the collectible type
-		// copy and past and create new types for different collectible types
 
 
 	
