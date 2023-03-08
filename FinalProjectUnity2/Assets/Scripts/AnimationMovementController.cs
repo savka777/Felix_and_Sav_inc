@@ -20,8 +20,8 @@ public class AnimationMovementController : MonoBehaviour
     bool isMovementPressed;
     bool isRunPressed;
 
-    [SerializeField] float runMultipler;
-    [SerializeField] float walkMultipler;
+    [SerializeField] public float runMultipler;
+    [SerializeField] public float walkMultipler;
 
     [SerializeField] float rotationFactorPerFrame = 1.0f;
 
