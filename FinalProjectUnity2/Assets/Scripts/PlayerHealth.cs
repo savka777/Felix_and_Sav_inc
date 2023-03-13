@@ -32,7 +32,7 @@ public class PlayerHealth : MonoBehaviour
         LoseScreen.SetActive(true);
     }
 
-    void Die()
+    public void Die()
     {
         Debug.Log("Player died.");
         Timer timer = FindObjectOfType<Timer>();

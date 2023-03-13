@@ -9,7 +9,7 @@ public class AnimationMovementController : MonoBehaviour
     PlayerInput playerInput;
     CharacterController characterController;
     Animator animator;
-
+    PlayerHealth playerHealth;
 
     int isWalkingHash;
     int isRunningHash;
@@ -43,10 +43,15 @@ public class AnimationMovementController : MonoBehaviour
     public float timer;
     public bool invJump;
 
-
+    //die when offscreen
+    [SerializeField] Renderer PRenderer;
+    float camtimer = 5;
+     
+    
 
     void Awake()
     {
+        
         playerInput = new PlayerInput();
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
@@ -194,7 +199,7 @@ public class AnimationMovementController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        PlayerHealth playerHealth = GetComponent<PlayerHealth>();
+        playerHealth = GetComponent<PlayerHealth>();
         playerHealth.isInvincible = true;
         if (other.CompareTag("Enemy"))
         {
@@ -236,6 +241,15 @@ public class AnimationMovementController : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
+        if (!PRenderer.isVisible)
+        {
+            camtimer -= Time.time;
+            if (camtimer <= 0)
+            {
+                playerHealth.Die();
+            }
+        }
+        
         handleRotation();
         handleAnimation();
         if (isRunPressed)

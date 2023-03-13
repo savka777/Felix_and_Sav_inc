@@ -1325,8 +1325,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83354134}
-  m_LocalRotation: {x: 0.009315047, y: 0, z: 0, w: 0.9999566}
-  m_LocalPosition: {x: -0.08, y: 30.76, z: -12.256845}
+  m_LocalRotation: {x: 0.008975789, y: 0, z: 0, w: 0.9999597}
+  m_LocalPosition: {x: -0.08, y: 30.76, z: -19.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4721,7 +4721,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 109714923110069718, guid: 088fbac7247bf534ab472be8c6a82a7f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.34
+      value: -10.8
       objectReference: {fileID: 0}
     - target: {fileID: 109714923110069718, guid: 088fbac7247bf534ab472be8c6a82a7f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4756,6 +4756,10 @@ PrefabInstance:
       value: PlayerDemo v1
       objectReference: {fileID: 0}
     - target: {fileID: 4924044276034706112, guid: 088fbac7247bf534ab472be8c6a82a7f, type: 3}
+      propertyPath: PRenderer
+      value: 
+      objectReference: {fileID: 382620041}
+    - target: {fileID: 4924044276034706112, guid: 088fbac7247bf534ab472be8c6a82a7f, type: 3}
       propertyPath: runMultipler
       value: 15
       objectReference: {fileID: 0}
@@ -4777,7 +4781,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4924044276340119218, guid: 088fbac7247bf534ab472be8c6a82a7f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.860001
+      value: -16.803154
       objectReference: {fileID: 0}
     - target: {fileID: 4924044276340119218, guid: 088fbac7247bf534ab472be8c6a82a7f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4794,6 +4798,10 @@ PrefabInstance:
     - target: {fileID: 4924044276340119218, guid: 088fbac7247bf534ab472be8c6a82a7f, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4924044276340119219, guid: 088fbac7247bf534ab472be8c6a82a7f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6735748736965168938, guid: 088fbac7247bf534ab472be8c6a82a7f, type: 3}
       propertyPath: LoseScreen
@@ -4824,6 +4832,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 1455308226}
   timerIsRunning: 0
+--- !u!23 &382620041
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382620033}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1001 &383858750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15755,7 +15805,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1374280534}
   m_LocalRotation: {x: 0.41248184, y: -0, z: -0, w: 0.91096586}
-  m_LocalPosition: {x: -0.08, y: 24.2, z: -20.2}
+  m_LocalPosition: {x: -0.08, y: 24.2, z: -27.603155}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 812508794}
@@ -23507,7 +23557,7 @@ MonoBehaviour:
     width: 2.11
   m_Looped: 0
   m_Waypoints:
-  - position: {x: 0, y: 0, z: -12.596846}
+  - position: {x: 0, y: 0, z: -20}
     roll: 0
   - position: {x: 0, y: 0, z: 190}
     roll: 0
